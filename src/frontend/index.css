@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* FreeCall Dark Theme — Deep Space Comms */
+    --background: 0.09 0.005 265;
+    --foreground: 0.94 0.01 260;
+    --card: 0.12 0.008 260;
+    --card-foreground: 0.94 0.01 260;
+    --popover: 0.14 0.01 260;
+    --popover-foreground: 0.94 0.01 260;
+
+    /* Teal/Cyan primary */
+    --primary: 0.75 0.15 195;
+    --primary-foreground: 0.09 0.005 265;
+
+    --secondary: 0.16 0.012 260;
+    --secondary-foreground: 0.85 0.01 260;
+
+    --muted: 0.15 0.008 260;
+    --muted-foreground: 0.55 0.01 260;
+
+    --accent: 0.2 0.02 195;
+    --accent-foreground: 0.75 0.15 195;
+
+    /* Red for end call / destructive */
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.25 0.015 260;
+    --input: 0.18 0.012 260;
+    --ring: 0.65 0.14 195;
+
+    --chart-1: 0.75 0.15 195;
+    --chart-2: 0.65 0.18 160;
+    --chart-3: 0.7 0.2 290;
+    --chart-4: 0.8 0.15 80;
+    --chart-5: 0.62 0.22 25;
+
+    --sidebar: 0.11 0.007 260;
+    --sidebar-foreground: 0.94 0.01 260;
+    --sidebar-primary: 0.75 0.15 195;
+    --sidebar-primary-foreground: 0.09 0.005 265;
+    --sidebar-accent: 0.16 0.012 260;
+    --sidebar-accent-foreground: 0.85 0.01 260;
+    --sidebar-border: 0.2 0.01 260;
+    --sidebar-ring: 0.65 0.14 195;
+  }
+
+  .dark {
+    --background: 0.09 0.005 265;
+    --foreground: 0.94 0.01 260;
+    --card: 0.12 0.008 260;
+    --card-foreground: 0.94 0.01 260;
+    --popover: 0.14 0.01 260;
+    --popover-foreground: 0.94 0.01 260;
+    --primary: 0.75 0.15 195;
+    --primary-foreground: 0.09 0.005 265;
+    --secondary: 0.16 0.012 260;
+    --secondary-foreground: 0.85 0.01 260;
+    --muted: 0.15 0.008 260;
+    --muted-foreground: 0.55 0.01 260;
+    --accent: 0.2 0.02 195;
+    --accent-foreground: 0.75 0.15 195;
+    --destructive: 0.62 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.25 0.015 260;
+    --input: 0.18 0.012 260;
+    --ring: 0.65 0.14 195;
+    --chart-1: 0.75 0.15 195;
+    --chart-2: 0.65 0.18 160;
+    --chart-3: 0.7 0.2 290;
+    --chart-4: 0.8 0.15 80;
+    --chart-5: 0.62 0.22 25;
+    --sidebar: 0.11 0.007 260;
+    --sidebar-foreground: 0.94 0.01 260;
+    --sidebar-primary: 0.75 0.15 195;
+    --sidebar-primary-foreground: 0.09 0.005 265;
+    --sidebar-accent: 0.16 0.012 260;
+    --sidebar-accent-foreground: 0.85 0.01 260;
+    --sidebar-border: 0.2 0.01 260;
+    --sidebar-ring: 0.65 0.14 195;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Sora", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code, .font-mono {
+    font-family: "Geist Mono", monospace;
+  }
+}
+
+@layer utilities {
+  .font-sora {
+    font-family: "Sora", system-ui, sans-serif;
+  }
+
+  .font-geist-mono {
+    font-family: "Geist Mono", monospace;
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 20px oklch(0.75 0.15 195 / 0.3), 0 0 60px oklch(0.75 0.15 195 / 0.1);
+  }
+
+  .glow-teal-sm {
+    box-shadow: 0 0 10px oklch(0.75 0.15 195 / 0.4), 0 0 20px oklch(0.75 0.15 195 / 0.15);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px oklch(0.62 0.22 25 / 0.4), 0 0 40px oklch(0.62 0.22 25 / 0.15);
+  }
+
+  .glow-red-sm {
+    box-shadow: 0 0 12px oklch(0.62 0.22 25 / 0.5), 0 0 24px oklch(0.62 0.22 25 / 0.2);
+  }
+
+  .glass-dark {
+    background: oklch(0.14 0.01 260 / 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid oklch(0.35 0.015 260 / 0.4);
+  }
+
+  .glass-toolbar {
+    background: oklch(0.1 0.008 260 / 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid oklch(0.3 0.012 260 / 0.35);
+  }
+
+  .noise-bg::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.08); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+@keyframes pulse-ring-outer {
+  0% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.15); opacity: 0.1; }
+  100% { transform: scale(1); opacity: 0.3; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-from-bottom {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in-from-bottom 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+.pulse-ring-anim {
+  animation: pulse-ring 2.5s ease-in-out infinite;
+}
+
+.pulse-ring-outer-anim {
+  animation: pulse-ring-outer 2.5s ease-in-out infinite;
+}
